@@ -3,15 +3,18 @@ chcp 65001 > nul
 title GitHub Upload
 cd /d "%~dp0"
 
+set "PATH=%USERPROFILE%\.git_portable\cmd;%USERPROFILE%\.git_portable\mingw64\bin;%PATH%"
+
 echo ============================================================
 echo   [GitHub 업로드] SANABI Custom Controller
 echo ============================================================
 echo.
-echo GitHub에 파일을 전송합니다.
-echo 브라우저 로그인 창이 뜨면 로그인을 진행해 주세요.
-echo.
+echo [1/2] GitHub 인증을 시작합니다 (브라우저가 열립니다)...
+call git-credential-manager github login --browser
 
-"%USERPROFILE%\.git_portable\cmd\git.exe" push -u origin main
+echo.
+echo [2/2] GitHub 저장소로 파일을 전송(Push)합니다...
+git push -u origin main
 
 echo.
 echo ============================================================
@@ -21,5 +24,5 @@ if errorlevel 1 (
     echo [OK] GitHub에 성공적으로 업로드되었습니다!
 )
 echo ============================================================
-echo 아무 키나 누르면 창이 닫힙니다.
-pause > nul
+echo.
+pause
