@@ -1,0 +1,18 @@
+{
+    "port": "AUTO",
+    "baud": 115200,
+    "threshold": 120,
+    "center_x": 512,
+    "center_y": 512,
+    "mappings": {
+        "joy_up": "w",
+        "joy_down": "s",
+        "joy_left": "a",
+        "joy_right": "d",
+        "east": "space",
+        "north": "mouse_left",
+        "south": "shift",
+        "west": "f",
+        "sw": "esc"
+    }
+}
